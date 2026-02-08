@@ -43,9 +43,9 @@ app.use("/api/v1/class", ClassRoutes)
 
 
 // Health Check
-app.get("/", authentication, (req, res) => {
+app.get("/", (req, res) => {
     res.status(200).json({
-        message: "Tournament Server Running..."
+        message: "Student Management System Server Running..."
     })
 })
 
