@@ -13,11 +13,13 @@ const registerUser = asyncHandler(async (req, res) => {
         fullName,
         email,
         password,
-        phoneNumber,
-        department
+        department,
+        phoneNumber
     } = req.body;
 
-    if (!fullName || !email || !password || !phoneNumber || !department) {
+    console.log(req.body.department)
+
+    if (!fullName || !email || !password || !department || !phoneNumber) {
         throw new ApiError(404, "Enter All The Fields")
     }
 
@@ -27,7 +29,7 @@ const registerUser = asyncHandler(async (req, res) => {
     }
 
     const addUser = await User.create({
-        fullName, email, password, phoneNumber, department
+        fullName, email, password, department, phoneNumber
     })
 
     res.status(200).json({
